@@ -23,11 +23,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="task11-1.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="task11-1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/task11-1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
+            <state relative-caret-position="-48">
               <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="task11-2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/task11-2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="task11-3.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/task11-3.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -54,6 +74,8 @@
         <option value="$PROJECT_DIR$/test/task10-4.html" />
         <option value="$PROJECT_DIR$/test/task8.html" />
         <option value="$PROJECT_DIR$/test/task11-1.html" />
+        <option value="$PROJECT_DIR$/test/task11-2.html" />
+        <option value="$PROJECT_DIR$/test/task11-3.html" />
       </list>
     </option>
   </component>
@@ -64,8 +86,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1946" />
-    <option name="y" value="51" />
+    <option name="x" value="1935" />
+    <option name="y" value="34" />
     <option name="width" value="1378" />
     <option name="height" value="688" />
   </component>
@@ -173,15 +195,15 @@
       <updated>1501625101520</updated>
       <workItem from="1501625103092" duration="906000" />
       <workItem from="1501753406759" duration="14102000" />
-      <workItem from="1501835215353" duration="10485000" />
+      <workItem from="1501835215353" duration="11995000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25493000" />
+    <option name="totallyTimeSpent" value="27003000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1946" y="51" width="1378" height="688" extended-state="0" />
+    <frame x="1935" y="34" width="1378" height="688" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -271,8 +293,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/task11-1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="-48">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/task11-2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/task11-3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
           <folding />
         </state>
       </provider>
