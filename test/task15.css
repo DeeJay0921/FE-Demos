@@ -103,6 +103,7 @@
 }
 #header .content .txt a:hover {
     background: #feba12;
+    transition: 0.5s;
 }
 
 

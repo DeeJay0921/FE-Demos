@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fddfcc2-e189-486c-acdf-54b40b2c72e4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/task15-1.html" afterPath="$PROJECT_DIR$/test/task15-1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/task15.css" afterPath="$PROJECT_DIR$/test/task15.css" />
     </list>
     <ignored path="demos.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,17 +35,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task15.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="task15.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/task15.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9960">
-              <caret line="445" column="30" selection-start-line="445" selection-start-column="30" selection-end-line="445" selection-end-column="30" />
+            <state relative-caret-position="432">
+              <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task15-1.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="task15-1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/task15-1.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
@@ -93,8 +93,8 @@
         <option value="$PROJECT_DIR$/advanced/task1.html" />
         <option value="$PROJECT_DIR$/test/task15.html" />
         <option value="$PROJECT_DIR$/test/test.html" />
-        <option value="$PROJECT_DIR$/test/task15.css" />
         <option value="$PROJECT_DIR$/test/task15-1.html" />
+        <option value="$PROJECT_DIR$/test/task15.css" />
       </list>
     </option>
   </component>
@@ -224,12 +224,12 @@
       <workItem from="1501835215353" duration="25451000" />
       <workItem from="1501913561984" duration="8567000" />
       <workItem from="1501997837556" duration="24615000" />
-      <workItem from="1502092011606" duration="56574000" />
+      <workItem from="1502092011606" duration="56664000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130215000" />
+    <option name="totallyTimeSpent" value="130305000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1382" height="744" extended-state="6" />
@@ -475,18 +475,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/task15.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9960">
-          <caret line="445" column="30" selection-start-line="445" selection-start-column="30" selection-end-line="445" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/task15-1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/task15.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
           <folding />
         </state>
       </provider>
