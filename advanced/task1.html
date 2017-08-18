@@ -1,30 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        @font-face {
-            font-family: 'iconfont';  /* project id 376300 */
-            src: url('//at.alicdn.com/t/font_j79e3sbwa0fcg14i.eot');
-            src: url('//at.alicdn.com/t/font_j79e3sbwa0fcg14i.eot?#iefix') format('embedded-opentype'),
-            url('//at.alicdn.com/t/font_j79e3sbwa0fcg14i.woff') format('woff'),
-            url('//at.alicdn.com/t/font_j79e3sbwa0fcg14i.ttf') format('truetype'),
-            url('//at.alicdn.com/t/font_j79e3sbwa0fcg14i.svg#iconfont') format('svg');
-        }
-        .iconfont {
-            font-family:"iconfont" !important;
-            font-style:normal;
-        }
-        h1:before {
-            content: '\e60d';
-        }
-    </style>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
 
-<div class="box">
-    <h1 class="iconfont">&#xe824;</h1>
-</div>
+<ul class="ct">
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg">鼠标放置查看图片1</li>
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg">鼠标放置查看图片2</li>
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg">鼠标放置查看图片3</li>
+</ul>
+<div class="img-preview"></div>
+
+
+
+<script>
+    var ulNode = document.querySelector('.ct');
+    var liNodes = document.querySelectorAll('li');
+    var show = document.querySelector('.img-preview');
+
+//    liNodes.forEach(function (node) {
+//        node.addEventListener('mouseenter',function () {
+//            show.innerHTML = '<img src=" '+ this.getAttribute('data-img')+ ' ">';
+//        })
+//        node.addEventListener('mouseleave',function () {
+//            show.innerHTML = '<div class="img-preview"></div>';
+//        })
+//    })
+
+
+    ulNode.addEventListener('mouseenter',function (e) {
+        console.log(e.target);
+//        绑定mouseenter时，每次事件触发e.target为 <ul>...</ul>
+    })
+    ulNode.addEventListener('click',function(e){
+        console.log(e.target);
+//        绑定click时，每次点击li, e.target输出的是li不是ul
+    })
+
+
+</script>
 </body>
 </html>

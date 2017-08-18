@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        a {
+            color: black;
+            text-decoration: none;
+        }
+        .modal-dialog {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+        }
+        .modal-dialog .modal-ct {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 400px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background: #fff;
+        }
+        .modal-container {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+        .header {
+            padding: 10px;
+            border-bottom: 1px solid black;
+        }
+        .header h3 {
+            float: left;
+        }
+        .header a {
+            float: right;
+        }
+        .content p {
+            margin: 10px;
+        }
+        .footer a {
+            float: right;
+            margin: 10px;
+        }
+        .btn-gruop {
+            margin: 20px;
+        }
+        .btn-gruop #btn-modal {
+            padding: 8px 16px;
+        }
+        /*设置展现样式*/
+        .open {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="btn-gruop">
+    <button id="btn-modal">点我</button>
+</div>
+
+<div class="modal-dialog" id="modal-1">
+    <div class="modal-container">
+        <div class="modal-ct">
+            <div class="header clearfix">
+                <h3>标题标题</h3>
+                <a href="#" class="close">x</a>
+            </div>
+            <div class="content">
+                <p>内容内容1</p>
+                <p>内容内容2</p>
+            </div>
+            <div class="footer">
+                <a href="#" class="btn btn-confirm">确定</a>
+                <a href="#" class="btn btn-cancel">取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var modalCt = document.querySelector('.modal-ct');
+    var modalContainer = document.querySelector('.modal-container');
+    var modalDialog = document.querySelector('.modal-dialog');
+    var btn = document.querySelector('.btn-gruop');
+    var close = document.querySelector('.close');
+    var btnC = document.querySelector('.btn-cancel');
+
+//    设置点击‘点我’弹出模态框
+    btn.addEventListener('click',function () {
+        modalDialog.classList.add('open');
+    })
+//    设置点击X关闭模态框
+    close.addEventListener('click',function () {
+        modalDialog.classList.remove('open');
+    })
+//    设置点击框外区域关闭模态框
+//    框外区域即modal-ct外，modal-container里面的部分，给modalContainer绑定事件解除open类即可
+    modalContainer.addEventListener('click',function () {
+        modalDialog.classList.remove('open');
+    })
+//    到目前为止，点击X关闭，点击框外关闭，但是出现了一个问题，点击框内也会关闭，因为框内即moda-ct也是modal-container的子元素
+//    点击modal-ct事件一样会触发,所以我们可以阻止事件冒泡,即在modal-ct上截断冒泡,这样点击modal-ct就不会关闭了
+    modalCt.addEventListener('click',function (e) {
+        e.stopPropagation();  // 阻止事件冒泡
+    })
+//    设置点击取消关闭
+    btnC.addEventListener('click',function () {
+        modalDialog.classList.remove('open');
+    })
+
+</script>
+</body>
+</html>
