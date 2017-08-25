@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task14-3</title>
+    <script src="../jquery-3.2.1.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+    }
+    body {
+        font-size: 12px;
+        color: #666;
+    }
+    .clearfix:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .wrap {
+        width: 800px;
+        margin: 10px auto;
+    }
+    ul {
+        margin-top: 10px;
+    }
+    ul li {
+        width: 218px;
+        height: 209px;
+        margin-right: 23px;
+        margin-bottom: 23px;
+        float: left;
+        padding: 10px 20px;
+        text-align: center;
+        position: relative;
+    }
+    ul li p {
+        text-align: left;
+    }
+    ul li span {
+        position: absolute;
+        top: 175px;
+        left: 18px;
+        color: red;
+    }
+     ul li div a {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        padding: 10px 15px;
+        background: #fff;
+        text-align: center;
+        border-radius: 3px;
+        color: #c81623;
+        border: 1px solid #c81623;
+         text-decoration: none;
+    }
+    .cover {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.2);
+        transition: all .3s;
+        opacity: 0;
+    }
+    .hover {
+        opacity: 1;
+    }
+    .btn {
+        padding: 10px 15px;
+        background: #fff;
+        text-align: center;
+        border-radius: 3px;
+        color: #c81623;
+        border: 1px solid #c81623;
+        text-decoration: none;
+        outline: none;
+        cursor: pointer;
+    }
+</style>
+<body>
+
+    <div class="wrap">
+        <h1>珠宝首饰</h1>
+        <div class="content">
+            <ul class="clearfix">
+                <li><div class="cover"><a href="#">立即抢购</a></div><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""><p>藏美千足金和田玉金镶玉路路通吊坠</p><span>￥1699.00</span></li>
+                <li><div class="cover"><a href="#">立即抢购</a></div><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""><p>藏美千足金和田玉金镶玉路路通吊坠</p><span>￥1699.00</span></li>
+                <li><div class="cover"><a href="#">立即抢购</a></div><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""><p>藏美千足金和田玉金镶玉路路通吊坠</p><span>￥1699.00</span></li>
+                <li><div class="cover"><a href="#">立即抢购</a></div><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""><p>藏美千足金和田玉金镶玉路路通吊坠</p><span>￥1699.00</span></li>
+                <li><div class="cover"><a href="#">立即抢购</a></div><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""><p>藏美千足金和田玉金镶玉路路通吊坠</p><span>￥1699.00</span></li>
+                <li><div class="cover"><a href="#">立即抢购</a></div><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""><p>藏美千足金和田玉金镶玉路路通吊坠</p><span>￥1699.00</span></li>
+            </ul>
+        </div>
+        </ul>
+
+
+
+        <button class="btn">add</button>
+    </div>
+
+
+    <script>
+        $('ul').on('mouseover','li',function () {
+            $(this).find('.cover').addClass('hover');
+        })
+        $('ul').on('mouseleave','li',function () {
+            $(this).find('.cover').removeClass('hover');
+        })
+        $('.btn').on('click',function () {
+            var $add = $('<li><div class="cover"><a href="#">立即抢购</a></div><img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt=""><p>珂兰 黄金手 猴哥款</p><span>￥405.00</span></li><li><div class="cover"><a href="#">立即抢购</a></div><img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt=""><p>珂兰 黄金手 猴哥款</p><span>￥405.00</span></li><li><div class="cover"><a href="#">立即抢购</a></div><img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt=""><p>珂兰 黄金手 猴哥款</p><span>￥405.00</span></li>');
+            $('ul').append($add);
+        })
+    </script>
+</body>
+</html>
