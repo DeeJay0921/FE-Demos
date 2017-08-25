@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task14-4-tab-slide-uodown</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+    }
+    .clearfix:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .tab-ct {
+        width: 600px;
+        margin: 50px auto;
+        padding: 5px;
+        border: 1px solid #ccc;
+
+    }
+    .header {
+        background: #fff;
+    }
+    .header li {
+        float: left;
+        width: 33.333333%;
+        border: 1px solid #ccc;
+        border-right: none;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+    }
+    .header li:last-child {
+        border-right: 1px solid #ccc;
+    }
+    /*设置样式类，用来改变样式*/
+    .header .active {
+        background: #ddd;
+    }
+    .contents {
+        /*给父元素设置1个元素的高度然后overflow:hidden，这样只展现一个元素*/
+        height: 200px;
+        overflow: hidden;
+        background: #fff;
+        position: relative;
+        z-index: -1;
+    }
+    .content {
+        position: absolute;
+        width: 100%;
+    }
+    .content li {
+        border: 1px solid #ccc;
+        border-top: none;
+        height: 200px;
+        /*设置上下滑动就要把三个li上下布局，不设置display:none，给父元素设置1个元素的高度然后overflow:hidden*/
+        /*display: none;*/
+        padding: 20px;
+
+    }
+    .content li:nth-child(1) {
+        background: red;
+    }
+    .content li:nth-child(2) {
+        background: green;
+    }
+    .content li:nth-child(3) {
+        background: blue;
+    }
+</style>
+<body>
+<div class="tab-ct">
+    <ul class="header clearfix">
+        <li class="active">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+    <div class="contents">
+        <ul class="content">
+            <li class="active">ct1</li>
+            <li>ct2</li>
+            <li>ct3</li>
+        </ul>
+    </div>
+</div>
+
+<script src="../jquery-3.2.1.min.js"></script>
+<script>
+    var contentHeight = $('.contents .content').height();
+    $('.header>li').on('click',function () {
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+        var index = $(this).index();
+        $('.content').animate({
+            top: index*-contentHeight/3,
+        })
+    })
+</script>
+</body>
+</html>
