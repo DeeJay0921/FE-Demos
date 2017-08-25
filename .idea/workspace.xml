@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/advanced/task14-2.html" line="92" mnemonic="5" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fddfcc2-e189-486c-acdf-54b40b2c72e4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/advanced/task14-2.html" afterPath="$PROJECT_DIR$/advanced/task14-2.html" />
-    </list>
+    <list default="true" id="2fddfcc2-e189-486c-acdf-54b40b2c72e4" name="Default" comment="" />
     <ignored path="demos.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -38,25 +36,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task14-1.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="task14-1.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/advanced/task14-1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-480">
-              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+            <state relative-caret-position="341">
+              <caret line="63" column="38" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="task14-2.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/advanced/task14-2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-              <folding>
-                <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -111,8 +96,8 @@
         <option value="$PROJECT_DIR$/advanced/router.js" />
         <option value="$PROJECT_DIR$/advanced/task12.html" />
         <option value="$PROJECT_DIR$/advanced/test.html" />
-        <option value="$PROJECT_DIR$/advanced/task14-1.html" />
         <option value="$PROJECT_DIR$/advanced/task14-2.html" />
+        <option value="$PROJECT_DIR$/advanced/task14-1.html" />
       </list>
     </option>
   </component>
@@ -123,7 +108,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="394" />
+    <option name="x" value="398" />
     <option name="y" value="62" />
     <option name="width" value="1382" />
     <option name="height" value="750" />
@@ -260,20 +245,20 @@
       <workItem from="1503464830306" duration="1193000" />
       <workItem from="1503585082684" duration="6129000" />
       <workItem from="1503591596970" duration="2110000" />
-      <workItem from="1503620865203" duration="9647000" />
+      <workItem from="1503620865203" duration="10817000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="368540000" />
+    <option name="totallyTimeSpent" value="369710000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="394" y="62" width="1382" height="750" extended-state="0" />
+    <frame x="398" y="62" width="1382" height="750" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2489019" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -601,14 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/advanced/task14-1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-480">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/advanced/task14-2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -617,6 +594,14 @@
             <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/advanced/task14-1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="63" column="38" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
