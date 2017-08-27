@@ -46,44 +46,48 @@
 </ul>
 
 <script>
-
-    // 先进行一次检查
-    lazyRender();
-    //为了不在滚轮滚动过程中就一直判定，设置个setTimeout,等停止滚动后再去判定是否出现在视野中。
     var clock;
+
+    render();
+
     $(window).on('scroll',function () {
-//        lazyRender();
-        if (clock) { // 用户在300毫秒内进行操作的话，上一次的操作完成后clock是有值的，为true，就会清除当前的clock，重新设置为300毫秒后触发
-            clearTimeout(clock);
+        if (clock) {
+            clearTimeout(clock)
         }
         clock = setTimeout(function () {
-            console.log('运行了一次');
-            lazyRender();
+            render();
         },300)
     })
 
-    function lazyRender () {
+    function render () {
         $('.container img').each(function () {
-            if (checkShow($(this)) && !isLoaded($(this)) ){
-                loadImg($(this));
+            if (checkShow($(this))) {
+                if (!isLoaded($(this))) {
+                    loadNode($(this));
+                }
             }
         })
     }
-    function checkShow($img) { // 传入一个img的jq对象
-        var scrollTop = $(window).scrollTop();  //即页面向上滚动的距离
-        var windowHeight = $(window).height(); // 浏览器自身的高度
-        var offsetTop = $img.offset().top;  //目标标签img相对于document顶部的位置
 
-        if (offsetTop < (scrollTop + windowHeight) && offsetTop > scrollTop) { //在2个临界状态之间的就为出现在视野中的
+
+
+    function checkShow($node) {
+        var windowHeight = $(window).height();
+        var scrollTop = $(window).scrollTop();
+        var nodeOffsetTop = $node.offset().top;
+
+        if (nodeOffsetTop < (windowHeight + scrollTop) &&　nodeOffsetTop > scrollTop) {
             return true;
         }
-        return false;
+        else {
+            return false;
+        }
     }
-    function isLoaded ($img) {
-        return $img.attr('data-src') === $img.attr('src'); //如果data-src和src相等那么就是已经加载过了
+    function isLoaded ($node) {
+        return $node.attr('src') === $node.attr('data-src');
     }
-    function loadImg ($img) {
-        $img.attr('src',$img.attr('data-src')); // 加载就是把自定义属性中存放的真实的src地址赋给src属性
+    function loadNode ($node) {
+        $node.attr('src',$node.attr('data-src'));
     }
 </script>
 </body>
