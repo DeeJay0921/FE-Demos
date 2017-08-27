@@ -4,10 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/advanced/task14-2.html" line="92" mnemonic="5" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fddfcc2-e189-486c-acdf-54b40b2c72e4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/advanced/task17-1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="2fddfcc2-e189-486c-acdf-54b40b2c72e4" name="Default" comment="" />
     <ignored path="demos.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -39,24 +36,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/advanced/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-              <folding>
-                <element signature="e#4496#4695#0" expanded="false" />
-                <element signature="e#5149#5302#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="336">
+              <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="120" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task17-1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/advanced/task17-1.html">
+      <file leaf-file-name="task17-2.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/advanced/task17-2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1920">
-              <caret line="131" column="6" selection-start-line="131" selection-start-column="6" selection-end-line="131" selection-end-column="6" />
+            <state relative-caret-position="96">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -121,8 +115,9 @@
         <option value="$PROJECT_DIR$/advanced/task16-2-router.js" />
         <option value="$PROJECT_DIR$/advanced/router.js" />
         <option value="$PROJECT_DIR$/advanced/task16.html" />
-        <option value="$PROJECT_DIR$/advanced/test.html" />
         <option value="$PROJECT_DIR$/advanced/task17-1.html" />
+        <option value="$PROJECT_DIR$/advanced/test.html" />
+        <option value="$PROJECT_DIR$/advanced/task17-2.html" />
       </list>
     </option>
   </component>
@@ -133,8 +128,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="481" />
-    <option name="y" value="153" />
+    <option name="x" value="477" />
+    <option name="y" value="139" />
     <option name="width" value="1378" />
     <option name="height" value="735" />
   </component>
@@ -280,15 +275,15 @@
       <workItem from="1503620865203" duration="15530000" />
       <workItem from="1503684017839" duration="10025000" />
       <workItem from="1503721613912" duration="27935000" />
-      <workItem from="1503805485904" duration="28165000" />
+      <workItem from="1503805485904" duration="30979000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="440548000" />
+    <option name="totallyTimeSpent" value="443362000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="481" y="153" width="1378" height="735" extended-state="0" />
+    <frame x="477" y="139" width="1378" height="735" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24889868" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -327,13 +322,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/task11-1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/task10-4.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="516">
@@ -620,14 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/advanced/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/advanced/task16.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
@@ -636,22 +616,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/advanced/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/advanced/task17-1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
-          <caret line="131" column="6" selection-start-line="131" selection-start-column="6" selection-end-line="131" selection-end-column="6" />
+        <state relative-caret-position="547">
+          <caret line="131" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="186" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/advanced/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-          <folding>
-            <element signature="e#4496#4695#0" expanded="false" />
-            <element signature="e#5149#5302#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="336">
+          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="120" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/advanced/task17-2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
