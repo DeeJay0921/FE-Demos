@@ -107,9 +107,7 @@
 
 <script src="../jquery-3.2.1.min.js"></script>
 <script>
-    var $imgct = $('.img-ct');
     var $imgs = $('.carousel .img-ct>li');
-    var imgWidth = $imgs.width();
     var imgCount = $imgs.length;
     var $pre = $('.pre');
     var $next = $('.next');
@@ -135,25 +133,38 @@
         $imgs.eq(index).fadeIn();
     })
     function playPre () {
+        if (animating) {
+            return;
+        }
+        animating = true;
         $imgs.eq(currentIndex).fadeOut();
         console.log('进入时的index',currentIndex);
         if (currentIndex === 0) {
             currentIndex = imgCount;
             console.log('if时的index',currentIndex);
         }
-        $imgs.eq(currentIndex-1).fadeIn();
+        $imgs.eq(currentIndex-1).fadeIn(function() {
+            animating = false;
+        });
         currentIndex--;
         setBullets();
+
         console.log('退出时的index',currentIndex);
     }
     function playNext () {
+        if (animating) {
+            return;
+        }
+        animating = true;
         $imgs.eq(currentIndex).fadeOut();
         console.log('进入时的index',currentIndex);
         if (currentIndex === imgCount-1) {
             currentIndex = -1;
             console.log('if时的index',currentIndex);
         }
-        $imgs.eq(currentIndex+1).fadeIn();
+        $imgs.eq(currentIndex+1).fadeIn(function () {
+            animating = false;
+        });
 
         currentIndex++;
         setBullets();

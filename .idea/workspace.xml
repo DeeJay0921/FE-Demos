@@ -4,7 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/advanced/task14-2.html" line="92" mnemonic="5" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fddfcc2-e189-486c-acdf-54b40b2c72e4" name="Default" comment="" />
+    <list default="true" id="2fddfcc2-e189-486c-acdf-54b40b2c72e4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/advanced/task17-2.html" afterPath="$PROJECT_DIR$/advanced/task17-2.html" />
+    </list>
     <ignored path="demos.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -49,8 +51,8 @@
       <file leaf-file-name="task17-2.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/advanced/task17-2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="336">
+              <caret line="122" column="34" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -275,12 +277,12 @@
       <workItem from="1503620865203" duration="15530000" />
       <workItem from="1503684017839" duration="10025000" />
       <workItem from="1503721613912" duration="27935000" />
-      <workItem from="1503805485904" duration="30979000" />
+      <workItem from="1503805485904" duration="31751000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="443362000" />
+    <option name="totallyTimeSpent" value="444134000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="477" y="139" width="1378" height="735" extended-state="0" />
@@ -642,8 +644,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/advanced/task17-2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="336">
+          <caret line="122" column="34" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
           <folding />
         </state>
       </provider>
