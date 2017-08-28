@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流_懒加载_ajax结合使用</title>
+</head>
+<style>
+    * {
+        margin: 0;;
+        padding: 0;
+        box-sizing: border-box;
+        list-style-type: none;
+    }
+    .wrap {
+        width: 1200px;
+        margin: 0 auto;
+    }
+    .clearfix:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    #pic-ct {
+        position: relative;
+    }
+    #pic-ct .item {
+        position: absolute;
+        padding: 0 0 10px 0;
+        width: 280px;
+        margin: 10px;
+        border: 1px solid #dfdfdf;
+        background: #fff;
+        /*opacity: 0;*/
+        transition: all 1s;
+    }
+    #pic-ct .item img {
+        margin: 10px;
+        width: 260px;
+    }
+    #pic-ct .item .header {
+        height: 25px;
+        margin: 0 12px;
+        border-bottom: 1px solid #dbdbdb;
+    }
+    #pic-ct .desp {
+        font-size: 12px;
+        line-height: 1.8;
+        margin: 10px 15px 0;
+        color: #777371;
+    }
+    #load {
+        visibility: hidden;
+        height: 20px;
+    }
+    .hide {
+        display: none;
+    }
+</style>
+<body>
+<div class="wrap">
+    <div class="ct-watefall">
+        <ul id="pic-ct" class="clearfix">
+
+            <!--<li class="item">-->
+            <!--<a href="#" class="link"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a>-->
+            <!--<h4 class="header">标题</h4>-->
+            <!--<p class="desp">asdasdasdasdas</p>-->
+            <!--</li>-->
+
+
+            <!--用于计算item宽度和列数进行瀑布流布局，但是其本身不展示出来-->
+            <li class="item hide"></li>
+        </ul>
+        <div id="load">本身看不见</div>
+    </div>
+</div>
+
+<script src="../jquery-3.2.1.min.js"></script>
+<script>
+    var currentPage = 0;
+    var waterFallArr = [];
+    var waterFallCol = parseInt($('#pic-ct').width() / $('.item').width());
+    for (var i = 0; i < waterFallCol; i ++) {
+        waterFallArr[i] = 0;
+    }
+    var clock;
+    getData();
+    $(window).on('scroll',function () {
+        if (clock) {
+            clearTimeout(clock);
+        }
+        clock = setTimeout(function () {
+            if (checkShow($('#load'))) {
+                getData();
+            }
+        },300)
+    })
+    function getData() {
+        $.ajax({
+            url: 'http://platform.sina.com.cn/slide/album_tech',
+            dataType: 'jsonp',
+            jsonp: 'jsoncallback',
+            method: 'get',
+            data: {
+                app_key: 1271687855,
+                page: currentPage,
+                num: 20,
+            }
+        }).done(function (ret) {
+            if (ret.status.code == 0) {
+                render(ret.data);
+                currentPage++;
+            }
+        })
+    }
+    function render (arr) {
+        $(arr).each(function (i,e) {
+            var html = '';
+            html += '<li class="item">';
+            html += '<a href=" ' +e.url + ' " class="link"><img src=" '+e.img_url +' "></a>'
+            html += '<h4 class="header">' +e.short_name+ '</h4>';
+            html += '<p class="desp">'+e.short_intro+'</p></li>';
+            var $node = $(html);
+            $node.find('img').on('load',function () {
+                $('#pic-ct').append($node);
+                waterFall($node);
+            })
+        })
+    }
+    function waterFall ($node) {
+        var minHeight = Math.min.apply(null,waterFallArr);
+        var minHeightIndex = waterFallArr.indexOf(minHeight);
+        $node.css({
+            left: minHeightIndex * $node.outerWidth(true),
+            top: minHeight,
+        })
+        waterFallArr[minHeightIndex] += $node.outerHeight(true);
+        $('#pic-ct').height(Math.max.apply(null,waterFallArr));
+    }
+    function checkShow ($node) {
+        var windowHeight = $(window).height();
+        var scrollTop = $(window).scrollTop();
+        var nodeOffsetTop = $node.offset().top;
+
+        if (nodeOffsetTop < windowHeight + scrollTop + 300) {
+            return true;
+        }
+        return false;
+    }
+
+</script>
+</body>
+</html>
