@@ -13,6 +13,7 @@
             width: 200px;
             margin-right: 10px;
             margin-top:  10px;
+            opacity: 0;
             transition: all 1s;
         }
     </style>
@@ -73,6 +74,7 @@
                 $(this).css({
                     left: minHeightIndex * $(this).outerWidth(true),
                     top: minHeight,
+                    opacity: 1,
                 })
                 waterFallArr[minHeightIndex] += $(this).outerHeight(true);
             })
