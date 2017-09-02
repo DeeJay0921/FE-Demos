@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件化轮播</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        box-sizing: border-box;
+    }
+    a {
+        text-decoration: none;
+    }
+    .clearfix:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    /*使元素进行位移一般有margin，relative以及绝对定位几种方式，要轮播显然使用绝对定位*/
+    .carousel {
+        position: relative;
+        width: 400px;
+        height: 250px;
+        overflow: hidden;
+
+        top: 50px;
+        /*设置carousel显露出来的部分水平居中*/
+        left: 50%;
+        transform: translate(-50%);
+    }
+    .carousel .img-ct {
+        /*width: 1600px;*/
+        position: absolute;
+    }
+    .carousel .img-ct img {
+        width: 400px;
+        height: 250px;
+    }
+    .carousel .img-ct>li {
+        float: left;
+    }
+
+    .carousel .arrow {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        top: 50%;
+        margin-top: -25px;
+        color: #fff;
+        line-height: 50px;
+        text-align: center;
+        font-size: 22px;
+    }
+    .carousel .arrow:hover {
+        background: rgba(0,0,0,0.1);
+    }
+    .carousel .pre{
+        left: 10px;
+    }
+    .carousel .next {
+        right: 10px;
+    }
+
+    .carousel .bullet {
+        position: absolute;
+        width: 100%;
+        top: 87%;
+        text-align: center;
+    }
+    .carousel .bullet>li {
+        display: inline-block;
+        width: 25px;
+        height: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .carousel .bullet>li.active {
+        background: #ccc;
+    }
+</style>
+<body>
+
+<div class="carousel">
+    <ul class="img-ct clearfix">
+        <li data-id="0"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+        <li data-id="1"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
+        <li data-id="2"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg"></a></li>
+        <li data-id="3"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg"></a></li>
+    </ul>
+    <a href="#" class="pre arrow"><</a>
+    <a href="#" class="next arrow">></a>
+    <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="carousel">
+    <ul class="img-ct clearfix">
+        <li data-id="0"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+        <li data-id="1"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
+        <li data-id="2"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg"></a></li>
+        <li data-id="3"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg"></a></li>
+    </ul>
+    <a href="#" class="pre arrow"><</a>
+    <a href="#" class="next arrow">></a>
+    <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<script src="../jquery-3.2.1.min.js"></script>
+<script>
+
+
+
+
+
+
+
+    var Carousel2 = (function () {
+        function Carousel ($ct) {
+            this.$ct = $ct;
+            this.init();
+            this.bind();
+        }
+        Carousel.prototype.init = function () {
+            this.$imgct = this.$ct.find('.img-ct');
+            this.$imgs = this.$ct.find('.img-ct>li');
+            //获取宽度和个数
+            this.imgWidth = this.$imgs.width();
+            this.imgCount = this.$imgs.length;
+            this.$pre = this.$ct.find('.pre');
+            this.$next = this.$ct.find('.next');
+            this.$bullets = this.$ct.find('.bullet>li');
+            this.pageIndex = 0;  //记录当前页码
+            this.animating = false; //针对连续重复点击，设置变量来监听是否处于动画过程中
+
+
+            this.$imgct.append(this.$imgs.first().clone());
+            this.$imgct.prepend(this.$imgs.last().clone());
+            this.$imgct.width((this.imgCount+2) * this.imgWidth);
+            this.$imgct.css({
+                left: -this.imgWidth,
+            })
+        }
+        Carousel.prototype.bind = function () {
+            var self = this;
+            this.$pre.on('click',function () {
+                self.playPre(1);
+            })
+            this.$next.on('click',function () {
+                self.playNext(1);
+            })
+            this.$bullets.on('click',function () {
+                var index = $(this).index();
+                if (index < self.pageIndex) {
+                    self.playPre(self.pageIndex - index);
+                }
+                else {
+                    self.playNext(index - self.pageIndex);
+                }
+            })
+
+        }
+        Carousel.prototype.playPre = function (num) {
+            var self = this;
+            if (this.animating) {
+                return; //如果还在动画中，直接return掉
+            }
+            this.animating = true; //进入动画，animating设为true表示正在动画中
+            this.$imgct.animate({
+                left: '+=' + num * this.imgWidth,
+            },function () {
+                self.pageIndex -= num;
+                if (self.pageIndex === -1) {
+                    self.pageIndex = self.imgCount-1;
+                    self.$imgct.css({
+                        left: -self.imgCount*self.imgWidth,
+                    })
+                }
+                self.setBullets();
+                self.animating = false; //动画结束后重新设置为false
+            })
+        }
+        Carousel.prototype.playNext = function (num) {
+            var self = this;
+            if (this.animating) {
+                return;
+            }
+            this.animating = true;
+            this.$imgct.animate({
+                left: '-=' + num * this.imgWidth,
+            },function () {
+                self.pageIndex += num;
+                if (self.pageIndex === self.imgCount) {
+                    self.pageIndex = 0;
+                    self.$imgct.css({
+                        left: -self.imgWidth,
+                    })
+                }
+                self.setBullets();
+                self.animating = false;
+            })
+        }
+        Carousel.prototype.setBullets = function () {
+            this.$bullets.removeClass('active')
+                    .eq(this.pageIndex).addClass('active');
+        }
+
+
+        return {
+            init: function ($ct) { //传入选取的所有元素
+                $ct.each(function (index,node) { //遍历所有选中的元素，给每一项都创建实例，这样就互不影响，而且调用组件很简洁
+                    new Carousel($(node));
+                })
+            }
+        }
+    })();
+    Carousel2.init($('.carousel')); //组件使用方法，调用init方法，传入选取的所有元素
+
+
+</script>
+</body>
+</html>
