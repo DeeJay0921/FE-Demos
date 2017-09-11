@@ -1,5 +1,5 @@
 //轮播
-define(['jquery'],function ($) {
+define(['lib/jquery-3.2.1.min'],function ($) {
     var Carousel2 = (function () {
         function Carousel ($ct) {
             this.$ct = $ct;

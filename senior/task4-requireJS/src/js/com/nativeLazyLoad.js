@@ -1,4 +1,4 @@
-define(['jquery'],function ($) {
+define(['lib/jquery-3.2.1.min'],function ($) {
     var nativeLazyLoad = function () {
         var currentPage = 0;
         var waterFallArr = [];

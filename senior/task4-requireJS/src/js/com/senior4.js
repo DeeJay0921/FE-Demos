@@ -1,5 +1,5 @@
 // 回到顶部
-define(['jquery'],function ($) {
+define(['lib/jquery-3.2.1.min'],function ($) {
     var GoTop2 = (function () {
         function GoTop ($ct) {
             this.$ct = $ct;
