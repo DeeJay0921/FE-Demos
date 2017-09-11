@@ -1,132 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>组件化轮播</title>
-</head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        box-sizing: border-box;
-    }
-    a {
-        text-decoration: none;
-    }
-    .clearfix:after {
-        content: '';
-        display: block;
-        clear: both;
-    }
-    /*使元素进行位移一般有margin，relative以及绝对定位几种方式，要轮播显然使用绝对定位*/
-    .carousel {
-        position: relative;
-        width: 400px;
-        height: 250px;
-        overflow: hidden;
-
-        top: 50px;
-        /*设置carousel显露出来的部分水平居中*/
-        left: 50%;
-        transform: translate(-50%);
-    }
-    .carousel .img-ct {
-        /*width: 1600px;*/
-        position: absolute;
-    }
-    .carousel .img-ct img {
-        width: 400px;
-        height: 250px;
-    }
-    .carousel .img-ct>li {
-        float: left;
-    }
-
-    .carousel .arrow {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        border: 1px solid #fff;
-        border-radius: 50%;
-        top: 50%;
-        margin-top: -25px;
-        color: #fff;
-        line-height: 50px;
-        text-align: center;
-        font-size: 22px;
-    }
-    .carousel .arrow:hover {
-        background: rgba(0,0,0,0.1);
-    }
-    .carousel .pre{
-        left: 10px;
-    }
-    .carousel .next {
-        right: 10px;
-    }
-
-    .carousel .bullet {
-        position: absolute;
-        width: 100%;
-        top: 87%;
-        text-align: center;
-    }
-    .carousel .bullet>li {
-        display: inline-block;
-        width: 25px;
-        height: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .carousel .bullet>li.active {
-        background: #ccc;
-    }
-</style>
-<body>
-
-<div class="carousel">
-    <ul class="img-ct clearfix">
-        <li data-id="0"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
-        <li data-id="1"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
-        <li data-id="2"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg"></a></li>
-        <li data-id="3"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg"></a></li>
-    </ul>
-    <a href="#" class="pre arrow"><</a>
-    <a href="#" class="next arrow">></a>
-    <ul class="bullet">
-        <li class="active"></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-</div>
-<div class="carousel">
-    <ul class="img-ct clearfix">
-        <li data-id="0"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
-        <li data-id="1"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
-        <li data-id="2"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg"></a></li>
-        <li data-id="3"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg"></a></li>
-    </ul>
-    <a href="#" class="pre arrow"><</a>
-    <a href="#" class="next arrow">></a>
-    <ul class="bullet">
-        <li class="active"></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-</div>
-
-<script src="../jquery-3.2.1.min.js"></script>
-<script>
-
+//轮播
+define(['jquery'],function ($) {
     var Carousel2 = (function () {
         function Carousel ($ct) {
             this.$ct = $ct;
             this.init();
             this.bind();
+            this.run();
         }
         Carousel.prototype.init = function () {
             this.$imgct = this.$ct.find('.img-ct');
@@ -209,7 +88,13 @@
         }
         Carousel.prototype.setBullets = function () {
             this.$bullets.removeClass('active')
-                    .eq(this.pageIndex).addClass('active');
+                .eq(this.pageIndex).addClass('active');
+        }
+        Carousel.prototype.run = function () {
+            var self = this;
+            setInterval(function () {
+                self.playNext(1);
+            },1000)
         }
 
 
@@ -221,9 +106,6 @@
             }
         }
     })();
-    Carousel2.init($('.carousel')); //组件使用方法，调用init方法，传入选取的所有元素
-
-
-</script>
-</body>
-</html>
+//组件使用方法，调用init方法，传入选取的所有元素
+    return Carousel2;
+})
