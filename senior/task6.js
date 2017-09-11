@@ -9,7 +9,9 @@ var Event = (function () {
         if (!events[evt]) {
             return;
         }
-        events[evt][0](args);
+        events[evt].forEach(function (e,i,arr) {
+            arr[i](args);
+        })
     }
     function off(evt) {
         delete events[evt];
