@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3效果的简单事例</title>
+</head>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+        border: 1px solid #000;
+        background: #feaf7c;
+    }
+    .box1 {
+        border-radius: 10px;
+    }
+    .box2 {
+        border-radius: 50%;
+    }
+    .box3 {
+        box-shadow: 5px 5px 5px 3px;
+    }
+    .box4 {
+        transform: scale(1.5);
+    }
+    .box5 {
+        transform: scale(0.5);
+    }
+    .box6 {
+        transform: translate(30px,10px);
+    }
+    .box7 {
+        transform: rotate(45deg);
+    }
+    .box8 {
+        background: linear-gradient(to bottom right,#8afe97,#feb95d);
+    }
+    .box9 {
+        transition: all 1s;
+    }
+    .box9:hover {
+        background: #976dfe;
+    }
+    @keyframes move {
+        from {
+            left: 0;
+        }
+        50% {
+            left: 93%;
+        }
+        to {
+            left: 0;
+        }
+    }
+    .box10 {
+        position: relative;
+        animation: 3s move infinite;
+    }
+</style>
+<body>
+<div class="box1 box"></div>
+<div class="box2 box"></div>
+<div class="box3 box"></div>
+<div class="box4 box"></div>
+<div class="box5 box"></div>
+<div class="box6 box"></div>
+<div class="box7 box"></div>
+<div class="box8 box"></div>
+<div class="box9 box"></div>
+<div class="box box10"></div>
+</body>
+</html>
