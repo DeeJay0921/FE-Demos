@@ -15,6 +15,12 @@
         <button-child v-on:childevent="parentDeal"></button-child>
         <!--父组件中，这里监听子组件中的自定义事件childevent，触发时，调用自身的parentDeal处理程序-->
         <button-child v-on:childEvent="parentDeal"></button-child>
+        <!--不要写成childEvent!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+
+
+        <!--   当想在组件上监听原生的事件的时候，直接用v-on再加上.native修饰符即可    -->
+        <!--<example-component v-on:click.native="doSomething"></example-component>-->
     </div>
 
 
