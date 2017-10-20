@@ -1,0 +1,18 @@
+
+@-webkit-keyframes move {
+  from {
+    left: 0;
+  }
+  to {
+    left: 200px;
+  }
+}
+@keyframes move {
+  from {
+    left: 0;
+  }
+  to {
+    left: 200px;
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRTtJQUNFLFFBQVE7R0FDVDtFQUNEO0lBQ0UsWUFBWTtHQUNiO0NBQ0Y7QUFQRDtFQUNFO0lBQ0UsUUFBUTtHQUNUO0VBQ0Q7SUFDRSxZQUFZO0dBQ2I7Q0FDRiIsImZpbGUiOiJzdHlsZS5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbkBrZXlmcmFtZXMgbW92ZSB7XG4gIGZyb20ge1xuICAgIGxlZnQ6IDA7XG4gIH1cbiAgdG8ge1xuICAgIGxlZnQ6IDIwMHB4O1xuICB9XG59Il19 */
