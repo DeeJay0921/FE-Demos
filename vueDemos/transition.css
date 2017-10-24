@@ -1,0 +1,17 @@
+@keyframes testAni {
+    from {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+.v-enter-active {
+    animation: testAni .5s;
+}
+.v-leave-active {
+    animation: testAni .5s reverse;
+}
