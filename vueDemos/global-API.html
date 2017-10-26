@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #app:hover {
+            color: red;
+        }
+        .none {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -11,6 +19,15 @@
     <!--<div id="testOptions">-->
         <!--{{msg }}-->
     <!--</div>-->
+
+    <!--<div class="test" @click="change" v-show="seen">-->
+       <!--test-->
+    <!--</div>-->
+
+    <div class="test">
+        <div v-if="seen" @click="change">123</div>
+        <div v-else @click="change">456</div>
+    </div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>

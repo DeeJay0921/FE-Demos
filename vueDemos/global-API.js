@@ -92,4 +92,31 @@ testWatch.a = 2
 // console.log(testOptions.$options)
 
 // vm.$attrs 除了class和style,包含了不是props的所有特性
-// vm.$listeners 
+// vm.$listeners
+// new Vue ({
+//     el: '#app',
+//     data: {
+//         none: false
+//     },
+//     methods: {
+//         change() {
+//             this.none = true
+//         }
+//     }
+// })
+var test = new Vue ({
+    el: '.test',
+    data: {
+        seen: true
+    },
+    methods: {
+        change() {
+            if(this.seen) {
+                this.seen = false
+            }
+            else {
+                this.seen = true
+            }
+        }
+    }
+})
