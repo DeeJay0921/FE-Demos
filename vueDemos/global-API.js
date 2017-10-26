@@ -73,3 +73,23 @@ testWatch.a = 2
 // beforeDestroy  实例销毁前调用  在这一步 实例仍然可以完全调用
 // destroyed  Vue实例销毁后调用 所有数据解绑定 所有子实例也销毁所有事件监听器也被移除
 // errorCaptured    捕获一个来自子孙组件的错误时被调用
+
+// ----------------------------  Vue的实例上的属性     ------------------------------------------
+// var vm = new Vue ({})
+// vm.$data  vm.$props  vm.$el vm.$options  vm.$parent  vm.$root  vm.$children  vm.$slots
+// var testOptions = new Vue(
+//     {
+//         el: '#testOptions',
+//         data: {
+//             msg: 'test'
+//         },
+//         methods: {
+//             add() {}
+//         }
+//
+//     }
+// )
+// console.log(testOptions.$options)
+
+// vm.$attrs 除了class和style,包含了不是props的所有特性
+// vm.$listeners 
