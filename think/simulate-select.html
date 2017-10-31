@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+        .select {
+            width: 230px;
+        }
+        .select input {
+            width: 200px;
+            height: 40px;
+            border: 1px solid #cccccc;
+            padding: 0 10px;
+            background: #ffffff;
+            text-align: left;
+            outline: none;
+        }
+        .select span {
+            margin-left: -20px;
+        }
+        .select ul {
+            width: 200px;
+            display: none;
+            height: 120px;
+            overflow: auto;
+        }
+        .select li {
+            line-height: 40px;
+            padding: 0 10px;
+            border: 1px solid #cccccc;
+        }
+        .select li:hover {
+            background: #cccccc;
+        }
+        .select .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="select">
+    <input type="button" class="show-area" value="132121">
+    <span>x</span>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</div>
+
+<!--<div class="select2">-->
+<!--<input type="button" class="show-area" value="asdfa">-->
+<!--<span>x</span>-->
+<!--<ul>-->
+<!--<li>1</li>-->
+<!--<li>2</li>-->
+<!--<li>3</li>-->
+<!--<li>4</li>-->
+<!--</ul>-->
+<!--</div>-->
+
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    function select(ct) {
+        var $select = $(ct)
+//            var $show = $('.show-area')
+        var $show = $select.find('.show-area')
+        var $options = $select.find('ul')
+        $show.on('focus',function () {
+            $options.addClass('active')
+
+        })
+        $show.on('blur',function () {
+            setTimeout(function () {
+                $options.removeClass('active')
+            },100)
+        })
+        $options.on('click','li',function () {
+            $show.attr('value',$(this).text())
+        })
+    }
+    select('.select')
+//    select('.select2')
+</script>
+</body>
+</html>
