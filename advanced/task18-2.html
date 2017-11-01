@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>waterfall</title>
+    <style>
+        .content {
+            position: relative;
+        }
+        .item {
+            /*绝对定位，并且每个元素的宽度是一定的*/
+            position: absolute;
+            width: 200px;
+            margin-right: 10px;
+            margin-top:  10px;
+            opacity: 0;
+            transition: all 1s;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="item"><img src="https://unsplash.it/200/300/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/800/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/600/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/700/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/500/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/400/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/200/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/500/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/600/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/900/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/700/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/400/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/300/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/400/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/500/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/200/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/500/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/700/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/500/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/400/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/800/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/900/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/600/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/500/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/400/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/200/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/300/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/100/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/400/?random"></div>
+    <div class="item"><img src="https://unsplash.it/200/600/?random"></div>
+</div>
+
+<script src="../jquery-3.2.1.min.js"></script>
+<script>
+
+
+    window.onload = function () {
+        waterFall();
+    }
+    $(window).on('resize',function () {
+        waterFall();
+    })
+        function waterFall () {
+            var waterFallArr = [];
+            var waterFallCol = parseInt($('.content').width() / $('.item').width());
+            for (var i = 0; i < waterFallCol; i ++) {
+                waterFallArr[i] = 0;
+            }
+            $('.item').each(function () {
+                var minHeight = Math.min.apply(null,waterFallArr);
+                var minHeightIndex = waterFallArr.indexOf(minHeight);
+                $(this).css({
+                    left: minHeightIndex * $(this).outerWidth(true),
+                    top: minHeight,
+                    opacity: 1,
+                })
+                waterFallArr[minHeightIndex] += $(this).outerHeight(true);
+            })
+        }
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .clearfix:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .content{
+        padding-left: 200px;
+        padding-right: 210px;
+    }
+    .left{
+        width: 200px;
+        height: 500px;
+        background: #93ffdb;
+        float: left;
+        margin-left: -100%;
+        /*使用负margin让lef和right上去*/
+        /*以为main的宽度为100%，所以重合的最低值是left的宽度，所以-200px就上去了，但是还要继续增加，一直要到最左边，即一个main的宽度，直接设为-100%即可*/
+
+        position: relative;
+        /*这时候content设置了padding给left和right留出了空间，但是left和right不会左右移动到相应的位置，需要用relative进行移动*/
+        left: -210px;
+        /*content设置了200px的空间，可以移动210px，留出点空间*/
+    }
+    .right{
+        width: 200px;
+        height: 500px;
+        background: #c680ff;
+        float: left;
+        margin-left: -200px;
+        /*right只需要上去就可以，不需要移动到左边，所以只需要加自身宽度的负margin*/
+
+        position: relative;
+        left: 210px;
+    }
+    .main{
+        background: #b7ff61;
+        float: left;
+        width: 100%;
+    }
+    /*圣杯布局的缺点是main的宽度不能小于left的宽度，因为main的宽度就是content的宽度，即父元素的宽度*/
+</style>
+
+<div class="content clearfix">
+    <div class="main">main</div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+</div>
+</body>
+</html>

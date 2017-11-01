@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    header {
+        padding: 40px 0;
+        text-align: center;
+    }
+    header input {
+        width: 220px;
+        padding: 5px;
+        outline: none;
+    }
+    main {
+        margin: 10px;
+    }
+    main:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    main>figure {
+        /*木桶布局使用浮动就可以实现*/
+        float: left;
+        padding: 5px;
+    }
+    main>figure img {
+        /*img撑满figure*/
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+    <header>
+        <input type="text" id="search-ipt" placeholder="输入图片名称">
+    </header>
+    <main>
+
+    </main>
+
+
+    <script src="../jquery-3.2.1.min.js"></script>
+    <script>
+        var page = 1;
+        var main = document.querySelector('main');
+        var mainNodeWidth = parseFloat(window.getComputedStyle(main).width);
+        var basicHeight = 200; //设定基准的高度
+        var caskRow = [];
+        var perRowTotalWidth = 0;
+
+
+        getData('wuhan').then(function (data) {
+            render(data);
+        })
+        function getData (keyword) {
+            return new Promise(function (resolve,reject) {
+                var url = 'https://pixabay.com/api/?';
+                var data = {
+                    key: '6308616-1b04711f10ae6c56389622553',
+                    q: keyword,
+                    page: page,
+                    per_page: 20,
+                    image_type: 'photo',
+                }
+                for(var key in data) {
+                    url += key + '=' + data[key] + '&';
+                }
+                var xhr = new XMLHttpRequest();
+                xhr.open('get',url,true);
+                xhr.send();
+                xhr.onload = function ()　{
+                    page++;
+                    var json = JSON.parse(this.response);
+                    resolve(json);
+                }
+            });
+        }
+        function render (data) {
+            data.hits.forEach(function (imgInfo) {
+                imgInfo.newHeight = basicHeight;
+                imgInfo.newWidth = (imgInfo.webformatWidth / imgInfo.webformatHeight) * basicHeight;
+                if (imgInfo.newWidth + perRowTotalWidth > mainNodeWidth) {
+//                    console.log(perRowTotalWidth);
+//                    console.log(caskRow)
+                    layout(caskRow,perRowTotalWidth);
+                    caskRow = [imgInfo];
+                    perRowTotalWidth = imgInfo.newWidth;
+                }
+                else {
+                    caskRow.push(imgInfo);
+                    perRowTotalWidth += imgInfo.newWidth;
+                }
+            })
+        }
+        function layout(rowArr,perRowTotalWidth) {
+            rowArr.forEach(function (imgInfo) {
+                var figureNode = document.createElement('figure');
+                var imgNode = document.createElement('img');
+                imgNode.src = imgInfo.webformatURL;
+                figureNode.appendChild(imgNode);
+                console.log(perRowTotalWidth)
+//                        var newHeight = (basicHeight * mainNodeWidth) / perRowTotalWidth;
+//                        console.log('newH',newHeight)
+//                        figureNode.style.height = newHeight+ 'px';
+//                        figureNode.style.width = (e.webformatWidth / e.webformatHeight) * newHeight + 'px';
+                var newHeight = (mainNodeWidth / perRowTotalWidth) * basicHeight;
+                figureNode.style.height = newHeight + 'px';
+                figureNode.style.width = (imgInfo.webformatWidth / imgInfo.webformatHeight) * newHeight + 'px';
+                main.appendChild(figureNode);
+            })
+        }
+    </script>
+</body>
+</html>

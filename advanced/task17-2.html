@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>渐变轮播</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        box-sizing: border-box;
+    }
+    a {
+        text-decoration: none;
+    }
+    .clearfix:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    /*使元素进行位移一般有margin，relative以及绝对定位几种方式，要轮播显然使用绝对定位*/
+    .carousel {
+        position: relative;
+        width: 400px;
+        height: 250px;
+        overflow: hidden;
+
+        top: 50px;
+        /*设置carousel显露出来的部分水平居中*/
+        left: 50%;
+        transform: translate(-50%);
+    }
+    .carousel .img-ct {
+        /*width: 1600px;*/
+        position: absolute;
+    }
+    .carousel .img-ct img {
+        width: 400px;
+        height: 250px;
+    }
+    .carousel .img-ct>li {
+        /*通过设置绝对定位，使得所有的li都脱离文档里重合在一起*/
+        position: absolute;
+        display: none;
+    }
+
+    .carousel .arrow {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        top: 50%;
+        margin-top: -25px;
+        color: #fff;
+        line-height: 50px;
+        text-align: center;
+        font-size: 22px;
+    }
+    .carousel .arrow:hover {
+        background: rgba(0,0,0,0.1);
+    }
+    .carousel .pre{
+        left: 10px;
+    }
+    .carousel .next {
+        right: 10px;
+    }
+
+    .carousel .bullet {
+        position: absolute;
+        width: 100%;
+        top: 87%;
+        text-align: center;
+    }
+    .carousel .bullet>li {
+        display: inline-block;
+        width: 25px;
+        height: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .carousel .bullet>li.active {
+        background: #ccc;
+    }
+</style>
+<body>
+
+<div class="carousel">
+    <ul class="img-ct clearfix">
+        <li data-id="0"><a href="#"><img src="https://unsplash.it/200/300/?random"></a></li>
+        <li data-id="1"><a href="#"><img src="https://unsplash.it/200/300/?random"></a></li>
+        <li data-id="2"><a href="#"><img src="https://unsplash.it/200/300/?random"></a></li>
+        <li data-id="3"><a href="#"><img src="https://unsplash.it/200/300/?random"></a></li>
+    </ul>
+    <a href="#" class="pre arrow"><</a>
+    <a href="#" class="next arrow">></a>
+    <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<script src="../jquery-3.2.1.min.js"></script>
+<script>
+    var $imgs = $('.carousel .img-ct>li');
+    var imgCount = $imgs.length;
+    var $pre = $('.pre');
+    var $next = $('.next');
+    var $bullets = $('.bullet>li');
+    var currentIndex = 0;  //记录当前页码
+    var animating = false; //针对连续重复点击，设置变量来监听是否处于动画过程中
+
+
+    play();
+    $pre.on('click',function () {
+        playPre();
+    })
+    $next.on('click',function () {
+        playNext();
+    })
+    $bullets.on('click',function () {
+        var index = $(this).index();
+        console.log('index为',index)
+        currentIndex = index;
+        console.log('pageIndex为',currentIndex)
+        setBullets();
+        $imgs.fadeOut();
+        $imgs.eq(index).fadeIn();
+    })
+    function playPre () {
+        if (animating) {
+            return;
+        }
+        animating = true;
+        $imgs.eq(currentIndex).fadeOut();
+        console.log('进入时的index',currentIndex);
+        if (currentIndex === 0) {
+            currentIndex = imgCount;
+            console.log('if时的index',currentIndex);
+        }
+        $imgs.eq(currentIndex-1).fadeIn(function() {
+            animating = false;
+        });
+        currentIndex--;
+        setBullets();
+
+        console.log('退出时的index',currentIndex);
+    }
+    function playNext () {
+        if (animating) {
+            return;
+        }
+        animating = true;
+        $imgs.eq(currentIndex).fadeOut();
+        console.log('进入时的index',currentIndex);
+        if (currentIndex === imgCount-1) {
+            currentIndex = -1;
+            console.log('if时的index',currentIndex);
+        }
+        $imgs.eq(currentIndex+1).fadeIn(function () {
+            animating = false;
+        });
+
+        currentIndex++;
+        setBullets();
+        console.log('退出时的index',currentIndex);
+    }
+    function setBullets () {
+        $bullets.removeClass('active')
+                .eq(currentIndex).addClass('active');
+    }
+    function play() {
+        $imgs.eq(currentIndex).fadeIn(); //页面一加载时，先让第一个元素显露出来
+        setInterval(function () {
+            playNext();
+        },1000)
+    }
+</script>
+</body>
+</html>

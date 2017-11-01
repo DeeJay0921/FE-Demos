@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vuedemos</title>
+  </head>
+  <body>
+    <div id="app">
+    	 组件传递props
+    	 动态绑定
+    	<input type="text" v-model='appMsg'>
+    	<br>
+    	<daisy v-bind:daisy-message="appMsg"></daisy>
+        <daisy v-bind="appObjMsg"></daisy>
+
+    <!--另外需要注意的是，使用字面量prop传递的就是字符串，想要传递数值，就要使用v-bind，只有v-bind指令中的才被当做JS表达式-->
+        <!--<daisy some-prop="1"></daisy>  这里的1是字符串-->
+        <!--<daisy v-bind:some-props="1"></daisy> 这里的1是js表达式1,是数值-->
+    </div>
+
+
+
+
+
+
+
+    <script src='https://cdn.jsdelivr.net/npm/vue'></script>
+    <script src='./components-props.js'></script>
+  </body>
+</html>

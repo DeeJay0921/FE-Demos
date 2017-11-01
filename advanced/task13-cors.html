@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+
+<ul>
+    <li>内容1</li>
+    <li>内容2</li>
+    <li>内容3</li>
+</ul>
+<button>换一组</button>
+
+<script>
+    var btn = document.querySelector('button');
+    var ul = document.querySelector('ul');
+    btn.addEventListener('click',function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open('get','http://localhost:8080/cors',true);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && (xhr.status ===200 || xhr.status === 304)) {
+                var news = JSON.parse(xhr.responseText);
+                render(news);
+
+            }
+        }
+    })
+    function render (arr) {
+        var html = '';
+        for (var i = 0; i < arr.length; i ++) {
+            html += '<li>' + arr[i] + '</li>';
+        }
+        ul.innerHTML = html;
+    }
+</script>
+
+</body>
+</html>
