@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise</title>
+</head>
+<body>
+
+<script>
+    function pro1() {
+        return new Promise (function (resolve,reject) {
+//            异步操作
+            var num = 'a'
+            setTimeout(() => {
+                console.log('异步开始执行')
+                resolve(num)
+            },300)
+        })
+    }
+    function pro2() {
+        return new Promise (function (resolve,reject) {
+//            异步操作
+            var num = 'b'
+            setTimeout(() => {
+                console.log('异步开始执行')
+                resolve(num)
+            },500)
+        })
+    }
+    function pro3() {
+        return new Promise (function (resolve,reject) {
+//            异步操作
+            var num = 'c'
+            setTimeout(() => {
+                console.log('异步开始执行')
+                resolve(num)
+            },700)
+        })
+    }
+//    pro1().then((num)=> {
+//        console.log(num + 'a')
+//        return num + 'a'
+//    })
+//    Promise.all([pro1(),pro2(),pro3()]).then((res) => {
+//        console.log(res)
+//    })
+    Promise.race([pro1(),pro2(),pro3()]).then((res) => {
+        console.log(res)
+    })
+
+</script>
+</body>
+</html>
