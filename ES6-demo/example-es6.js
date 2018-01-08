@@ -69,7 +69,44 @@
 // var res = fn([1,2,3,4,5], [1,2,4])
 // console.log(res)
 
-// function rest (...vals) {
+// function rest (...vals) { // vals本身就是一个数组   所以以后可以不用写 [].splice.call(arguments,1,1)这种函数了
 //     console.log(vals) // array
 // }
 // rest(1,2,3,4,5)
+
+// let fn = () => {
+//     console.log(1111)
+//     return undefined
+// }
+// fn()
+
+// let x = 1
+// function fn (x,y = x) { // 默认值的函数参数（）也是一个作用域
+//     console.log(x,y)
+// }
+// fn(1,2) // 1 2
+// fn(1) // 1
+
+// let x = 1
+// function fn (y = x) {
+//     let x = 2
+//     console.log(y)
+// }
+// fn() // 没传参 (y = x)也是一个作用域，其中没有定义x  那么去找外部作用域的x  既输出1
+
+// let x = 1
+// function fn (x, y = function () {x = 2}) {
+//     x = 3  // 这里的x就是 参数 （）作用域中一开始声明的x
+//     y()
+//     console.log(x)
+// }
+// fn()
+// console.log(x)
+
+// function emptyFn () {
+//     throw new Error('Empty params!')
+// }
+// function fn (targetParam = emptyFn()) { // 可以用来判断是否没有默认值
+//     return targetParam
+// }
+// fn()
