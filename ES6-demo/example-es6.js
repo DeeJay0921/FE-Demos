@@ -152,3 +152,61 @@
 // })
 // console.log(res2)
 
+// 对象的简写方法
+// let date = new Date()
+// const obj = {
+//     name: 'DeeJay',
+//     date, // 同名简写
+//     sayHi() { // 方法简写
+//         console.log(this.name)
+//     }
+// }
+// console.log(obj)
+// 简写也可以用在返回值中
+// function fn (x,y) {
+//     return {x,y}
+// }
+// let res = fn(1,2)
+// console.log(res) // {x: 1,y: 2}
+
+// Object.assign() 对象合并
+// let source1 = {
+//     a: 1
+// }
+// let source2 = {
+//     b: 2
+// }
+// let target = {}
+// Object.assign(target,source1,source2)
+// console.log(target) // {a: 1,b: 2}
+
+// Object.assign()在创建构造函数的时候可以用来进行属性的赋值
+// class Cat {
+//     constructor (name,age) {
+//         Object.assign(this,{name,age})// 相当于 this.name = name; this.age = age
+//     }
+// }
+// let cc = new Cat('cc',18)
+
+// ES6对原型进行的操作Object.setPrototypeOf() Object.getPrototypeOf()   以及ES5的Object.create()
+// function Person (name,age) {
+//     Object.assign(this,{name,age})
+// }
+// let p = new Person('Jay',21)
+// Object.getPrototypeOf(p) === Person.prototype //true
+// Object.setPrototypeOf(p,Object.prototype) // 这时候p的__proto__不再是Person.prototype
+//Object.setPrototypeOf 相当于修改__ptoto__
+
+// super关键字
+// 和this相对的，this指向的是函数所在的当前对象  super指向的是当前对象的原型对象 super只能用在对象的简写方法之中
+// let sup = {
+//     name: 'sup',
+// }
+// let sub = {
+//     logSuper() {
+//         console.log(super.name) // 这里的super,在进行了setPrototypeOf()之后，super就指向sub的原型对象
+//     }
+// }
+// Object.setPrototypeOf(sub,sup)
+// console.log(sub.prototype === sup.prototype) // true
+// sub.logSuper() // sup
