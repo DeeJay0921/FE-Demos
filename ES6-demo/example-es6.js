@@ -110,3 +110,45 @@
 //     return targetParam
 // }
 // fn()
+
+/*es6字符串的遍历*/
+// let str = 'DeeJay'
+// for (let targetStr of str) {
+//     console.log(targetStr)// D e e J a y
+// }
+
+// 模板字符串
+// let str = `In JavaScript, \\n is a line-feed`
+// console.log(str)
+
+//模板字符串中  加变量
+// let num = 0
+// setInterval(() => {
+//     num ++
+//     let str = `The number is ${num} now.` // 写到${}中
+//     console.log(str)
+// },1000)
+
+// ... 扩展运算符
+// function fn (...rest) {
+//     console.log(rest) // [1,2,3]
+//     console.log(...rest) // 1 2 3
+// }
+// fn(1,2,3)
+
+// let arr = Array.of(3)
+// console.log(arr)// [3]
+// let arr2 = Array.of(3,1,1)
+// console.log(arr2) // [3,1,1]
+
+
+// let arr = [-1,-2,3,4]
+// let res = arr.find((e) => { // 找到值
+//     return e > 0
+// })
+// console.log(res)
+// let res2 = arr.findIndex((e) => { // 找到index
+//     return e > 0
+// })
+// console.log(res2)
+
