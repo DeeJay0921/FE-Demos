@@ -269,7 +269,7 @@ let log = (str) => {
 // log(set.has(3)) //true  返回一个boolean值
 // set.clear() // clear() 清空实例中的所有值
 // log(set) // Set {}
-// Array.from()可以转换Set实例为数组
+// Array.from()可以转换Set实例为数组  实现数组去重
 let dupeArr = [1,1,1,2,2,3]
 let dedupeArr = Array.from(new Set(dupeArr))
 log(dedupeArr) // [1,2,3]
