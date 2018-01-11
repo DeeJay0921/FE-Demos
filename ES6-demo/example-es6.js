@@ -1,3 +1,7 @@
+let log = (str) => {
+    console.log(str)
+}
+
 // let [a,b,c] = [1,2]  不完全解构
 // console.log(a,b,c) // 1 2 undefined
 
@@ -210,3 +214,62 @@
 // Object.setPrototypeOf(sub,sup)
 // console.log(sub.prototype === sup.prototype) // true
 // sub.logSuper() // sup
+
+
+//Object.keys() 的扩展 Object.values()以及Object.entries()
+// let obj = {
+//     a: 1,
+//     b: 2,
+//     c: 3
+// }
+// let keys = Object.keys(obj)
+// let values = Object.values(obj)
+// let entries = Object.entries(obj)
+// console.log(keys)
+// console.log(values)
+// console.log(entries)
+
+// const {a,b,...c} = {a:1,b:2,z:3,d:4,dd:5}
+// console.log(a)
+// console.log(b)
+// console.log(c)
+
+// // Symbol
+// let s1 = Symbol() // Symbol 不是对象  不能new
+// let s2 = Symbol('s2') // Symbol可以传入字符串作为标识
+// let obj = {
+//     [s1]: 'hi Symbol~', // Symbol作为对象属性
+//     [s2]() { // Symbol作为对象方法
+//         console.log('hello,Symbol function')
+//     }
+// }
+// obj[s2]()
+// let Symbols = Object.getOwnPropertySymbols(obj)
+// log(Symbols) //[ Symbol(), Symbol(s2) ]
+//
+// let s3 = Symbol.for('same') // Symbol.for()可以创建相同的Symbol值
+// let s4 = Symbol.for('same')
+// log(s3 === s4) //true
+// // Symbol.for()创建的symbol会被登记在全局环境中供搜索 而Symbol()不会
+// log(Symbol.keyFor(s3)) // same  Symbol.for()创建的会被keyFor()读到key
+// let s5 = Symbol('s5')
+// log(Symbol.keyFor(s5)) // undefined  Symbol()创建的不会
+
+// Set数据结构
+// let set = new Set()
+// let arr = [2,1,1,1,1,2,3,4,5,4,5]
+// arr.forEach((e) => {
+//     set.add(e) // Set和数组类似  但是所有成员都是唯一的
+// })
+// log(set) //Set { 2, 1, 3, 4, 5 }
+// log(set.constructor) // constructor默认指向Set构造函数函数
+// log(set.size) // 返回实例的成员总数
+// set.delete(2) // 返回一个boolean值 删除传入的值
+// log(set) //Set { 1, 3, 4, 5 }
+// log(set.has(3)) //true  返回一个boolean值
+// set.clear() // clear() 清空实例中的所有值
+// log(set) // Set {}
+// Array.from()可以转换Set实例为数组
+let dupeArr = [1,1,1,2,2,3]
+let dedupeArr = Array.from(new Set(dupeArr))
+log(dedupeArr) // [1,2,3]
