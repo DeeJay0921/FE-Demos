@@ -292,6 +292,32 @@ let log = (str) => {
 // let arr = [...set]
 // log(arr)
 
-let ws = new WeakSet();
+// let ws = new WeakSet();
 // ws.add(1); //  Invalid value used in weak set
 // ws.add(Symbol()); //Invalid value used in weak set
+
+// const o = {greet: "hello, Map's key"};
+// const m = new Map();
+// m.set(o,"hello, Map's value");
+// log(m);
+// log(m.get(o)); //hello, Map's value
+// m.has(o) // true
+// m.delete(o) // true
+// m.has(o) // false
+
+// const arr = [
+//     ['name','DeeJay'],
+//     ['title','Learn Map']
+// ];
+// const m = new Map(arr);
+// log(m.size); // 2
+// log(m.has('name')); // true
+// log(m.get('name')); // DeeJay
+
+let s = new Set([
+    ['name','yang'],
+    ['age',21]
+]);
+let m = new Map(s);
+log(m.size); // 2
+log(m.get('age')); // 21
