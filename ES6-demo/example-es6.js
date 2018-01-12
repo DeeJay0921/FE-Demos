@@ -255,21 +255,43 @@ let log = (str) => {
 // let s5 = Symbol('s5')
 // log(Symbol.keyFor(s5)) // undefined  Symbol()创建的不会
 
-// Set数据结构
+// // Set数据结构
 // let set = new Set()
 // let arr = [2,1,1,1,1,2,3,4,5,4,5]
 // arr.forEach((e) => {
 //     set.add(e) // Set和数组类似  但是所有成员都是唯一的
 // })
 // log(set) //Set { 2, 1, 3, 4, 5 }
-// log(set.constructor) // constructor默认指向Set构造函数函数
+// let set = new Set([1,2,3,5])
+// log(set.constructor === Set) // constructor默认指向Set构造函数函数
 // log(set.size) // 返回实例的成员总数
 // set.delete(2) // 返回一个boolean值 删除传入的值
 // log(set) //Set { 1, 3, 4, 5 }
 // log(set.has(3)) //true  返回一个boolean值
 // set.clear() // clear() 清空实例中的所有值
 // log(set) // Set {}
-// Array.from()可以转换Set实例为数组  实现数组去重
-let dupeArr = [1,1,1,2,2,3]
-let dedupeArr = Array.from(new Set(dupeArr))
-log(dedupeArr) // [1,2,3]
+// // Array.from()可以转换Set实例为数组  实现数组去重
+// let dupeArr = [1,1,1,2,2,3]
+// let dedupeArr = Array.from(new Set(dupeArr))
+// let dedupeArr = [...new Set(dupeArr)];
+// log(dedupeArr) // [1,2,3]
+// Set的遍历操作  Set的遍历顺序就是添加顺序，所以添加一些回调函数进行遍历时，就会按照添加的顺序进行遍历
+// let cbList = new Set();
+// let cb1 = () => {console.log(this.name)};
+// let cb2 = () => {console.log(this.name)};
+// let cb3 = () => {console.log(this.name)};
+// cbList.add(cb1)
+// cbList.add(cb2)
+// cbList.add(cb3)
+// cbList.forEach((cb) => {
+//     cb() // cb1 cb2 cb3
+// })
+
+// let set = new Set([1,2,3])
+// log(set)
+// let arr = [...set]
+// log(arr)
+
+let ws = new WeakSet();
+// ws.add(1); //  Invalid value used in weak set
+// ws.add(Symbol()); //Invalid value used in weak set
