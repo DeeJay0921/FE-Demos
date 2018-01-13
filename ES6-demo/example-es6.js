@@ -314,10 +314,41 @@ let log = (str) => {
 // log(m.has('name')); // true
 // log(m.get('name')); // DeeJay
 
-let s = new Set([
-    ['name','yang'],
-    ['age',21]
-]);
-let m = new Map(s);
-log(m.size); // 2
-log(m.get('age')); // 21
+// let s = new Set([
+//     ['name','yang'],
+//     ['age',21]
+// ]);
+// let m = new Map(s);
+// log(m.size); // 2
+// log(m.get('age')); // 21
+
+// let m = new Map();
+// m.set('a',500);
+// m.set('b',600);
+// // let arr = [...m];
+// let arr = Array.from(m);
+// log(arr);
+// m.forEach( e => {
+//     console.log(e); // 500 600 遍历顺序就是插入顺序
+// })
+
+// let targetObj = {}; // 目标对象
+// let p = new Proxy(targetObj, { // 为目标对象设置代理
+//     get() {
+//         return "U are getting TargetObj's values~";
+//     }
+// });
+// let res = p.time; // 设置了代理之后，要通过创建的Proxy实例来访问，直接访问targetObj不会通过代理
+// console.log(res); // U are getting TargetObj's values~
+
+function two (time) {
+    console.log(time.length)
+    if(time.length == 1) {
+        return '0' + time;
+    }
+}
+let stamp = 1515834492;
+let date = new Date(stamp);
+let min = date.getMinutes() + '';
+min = two(min);
+log(min)
