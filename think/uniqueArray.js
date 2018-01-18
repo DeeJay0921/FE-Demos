@@ -1,5 +1,6 @@
 var arr = [1,1,'a','d','c','d',2]
 
+// 1.
 function unique1 (arr) {
     // indexOf
     var newArr = []
@@ -13,7 +14,14 @@ function unique1 (arr) {
 var newArr1 = unique1(arr)
 console.log(newArr1)
 
-function unique2 (arr) {
+// 2. filter  indexOf()
+let newArr2 = arr.filter( (e,i,arr) => {
+    return arr.indexOf(e) == i;
+})
+console.log(newArr2);
+
+// 3.
+function unique3 (arr) {
     // sort()
     var newArr = []
     arr.sort()
@@ -24,5 +32,10 @@ function unique2 (arr) {
     }
     return newArr
 }
-var newArr2 = unique2(arr)
-console.log(newArr2)
+var newArr3 = unique3(arr)
+console.log(newArr3);
+
+// 4. Set()
+let newArr4 = [...new Set(arr)];
+// let newArr4 = Array.from(new Set(arr));
+console.log(newArr4);

@@ -341,14 +341,17 @@ let log = (str) => {
 // let res = p.time; // 设置了代理之后，要通过创建的Proxy实例来访问，直接访问targetObj不会通过代理
 // console.log(res); // U are getting TargetObj's values~
 
-function two (time) {
-    console.log(time.length)
-    if(time.length == 1) {
-        return '0' + time;
-    }
-}
-let stamp = 1515834492;
-let date = new Date(stamp);
-let min = date.getMinutes() + '';
-min = two(min);
-log(min)
+// const http = require('http');
+//
+// const hostname = '127.0.0.1';
+// const port = 5656;
+//
+// const server = http.createServer((req, res) => {
+//     res.statusCode = 200;
+//     res.setHeader('Content-Type', 'text/html');
+//     res.end('Hello World\n');
+// });
+//
+// server.listen(port, hostname, () => {
+//     console.log(`服务器运行在 http://${hostname}:${port}/`);
+// });
