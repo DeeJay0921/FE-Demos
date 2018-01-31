@@ -341,17 +341,36 @@ let log = (str) => {
 // let res = p.time; // 设置了代理之后，要通过创建的Proxy实例来访问，直接访问targetObj不会通过代理
 // console.log(res); // U are getting TargetObj's values~
 
-// const http = require('http');
-//
-// const hostname = '127.0.0.1';
-// const port = 5656;
-//
-// const server = http.createServer((req, res) => {
-//     res.statusCode = 200;
-//     res.setHeader('Content-Type', 'text/html');
-//     res.end('Hello World\n');
-// });
-//
-// server.listen(port, hostname, () => {
-//     console.log(`服务器运行在 http://${hostname}:${port}/`);
-// });
+
+// function * testGenerator () {
+//     yield 'test'   //yield 后面的表达式  只有调用g.next()的时候才会执行 Lazy Evaluation
+//     yield 'Generator'
+//     return 'done'
+// }
+// let g = testGenerator()
+// let res1 = g.next() // { value: 'test', done: false }
+// let res2 = g.next() // { value: 'Generator', done: false }
+// let res3 = g.next() // { value: 'done', done: true }
+// let res4 = g.next() // { value: undefined, done: true }
+// console.log(res4)
+
+// function* testG () {
+//     console.log(1)
+// }
+// let g = testG()
+// let res = g.next()
+// console.log(res) // { value: undefined, done: true } 没有return 的值 为undfined
+function co (ms,num) {
+    return new Promise ((resolve,reject) => {
+        setTimeout( () => {
+            resolve(num)
+        },ms)
+    }).then( (data) => {
+        console.log(data)
+    })
+}
+
+async function testAsync (ms,num) {
+    await co(ms,num)
+}
+testAsync(300,'Hello,async/await')
