@@ -4,4 +4,5 @@ import App from './app'
 
 const rootDom = document.querySelector('#root')
 
-ReactDom.render(<App name={123}></App>,rootDom)
+
+ReactDom.render(<App ></App>,rootDom)
