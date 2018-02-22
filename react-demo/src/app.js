@@ -121,8 +121,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <li>1</li>
-        <li>2</li>
+        <h1>Hello React</h1>
       </React.Fragment>
     )
   }
