@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            display: flex;
+            height: 100%;
+        }
+
+        .left {
+            width: 200px;
+            border: 1px solid green;
+            height: 100%;
+        }
+
+        .right {
+            border: 1px solid red;
+            width: calc(100% - 200px);
+            height: 100%;
+            overflow: hidden;
+        }
+        .test {
+            height: 100%;
+            overflow: auto;
+        }
+        .box1 {
+            margin-bottom:  500px;
+        }
+        .box2 {
+            margin-bottom: 700px;
+        }
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="left">
+            <ul class="menu">
+                <li data-index="0">1</li>
+                <li data-index="1">2</li>
+                <li data-index="2">3</li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="test">
+                <div class="box1">1</div>
+                <div class="box2">2</div>
+                <div class="box3">3</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $('.menu').on('click', 'li', (e) => {
+            let index = $(e.target).attr("data-index");
+
+            console.log($('.test').children().eq(index).offset().top);
+
+            $(".test").animate({
+                scrollTop: $('.test').children().eq(index).offset().top
+            })
+
+            // $(".test").css({
+            //     scrollTop: $('.test').children().eq(index).offset().top
+            // })
+
+        })
+
+
+
+
+
+
+        let res = [];
+        let list = ['.box1', '.box2', '.box3'];
+        addActive();
+        let pre_scrollTop;
+        $('.test').scroll(() => {
+            let direction;
+            if(!pre_scrollTop) {
+                pre_scrollTop = $('.test').scrollTop();
+                direction = "down";
+            }
+            if(pre_scrollTop <= $('.test').scrollTop()) {
+                direction = "down";
+            }else {
+                direction = "up";
+            }
+            res = list.filter(selector => {
+                return checkShow(selector);
+            })
+            addActive(direction);
+        })
+
+        function addActive(direction) {
+            let targetIndex = list.findIndex(list => {
+                if(direction == "down") {
+                    return list == res[res.length -1];
+                }else {
+                    return list == res[0];
+                }
+
+            })
+            $('.menu').children().siblings().removeClass('red');
+            if(targetIndex == -1) {
+                $('.menu').children().eq(0).addClass('red');
+            }else {
+                $('.menu').children().eq(targetIndex).addClass('red');
+            }
+        }
+
+        function checkShow(selector) {
+            let offsetTop = $(selector).offset().top;
+            let windowHeight = $(window).height();
+            if(offsetTop < windowHeight &&  offsetTop > 0) {
+                return true;
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>
